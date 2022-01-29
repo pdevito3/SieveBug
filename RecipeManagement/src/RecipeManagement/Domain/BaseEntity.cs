@@ -2,10 +2,12 @@ namespace RecipeManagement.Domain;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Sieve.Attributes;
 
 public abstract class BaseEntity
 {
     [Key]
+    [Sieve(CanFilter = true, CanSort = true)]
     public Guid Id { get; private set; } = Guid.NewGuid();
     public DateTime CreatedOn { get; private set; }
     public string? CreatedBy { get; private set; }
